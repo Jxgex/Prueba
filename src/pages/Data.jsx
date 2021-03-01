@@ -4,28 +4,10 @@ import { inArray } from "../common/functions";
 import Header from "../components/Header.jsx";
 import RemoveIcon from "../Assets/images/remove-gold.svg";
 import ReloadIcon from "../Assets/images/reload.svg";
+import data from "../utils/data";
 
-export default function Data() {
+function Data() { 
   const [filterText, setFilterText] = useState("");
-  const data = [
-    {
-      aditionalInformation: "Piso 12",
-      age: 25,
-      city: "CDMX",
-      country: "MX",
-      email: "edgar.pozadas@platimex.com.mx",
-      firstName: "Platimex",
-      idClient: 1,
-      idLeadStatus: 1,
-      insertDate: "2021-01-11 10:40",
-      lastName: "Sofware Solutions",
-      leadStatus: "New",
-      phoneNumber: "5572037160",
-      state: "CDMX",
-      street: "Insurgentes Sur 105",
-      zipCode: "06300"
-    },
-  ];
   const columns = [
     {
       name: "ID Client",
@@ -89,7 +71,7 @@ export default function Data() {
     }
     return false;
   });
-
+  
   const FilterComponent = ({ onFilter }) => (
     <article className="filterTable">
       <span>
@@ -114,7 +96,7 @@ export default function Data() {
   }, []);
   return (
     <>
-      <Header active="data" />
+      <Header active="Data"/>
       <div className="general">
         <h1>Data</h1>
         <div className="tableContainer">
@@ -130,3 +112,5 @@ export default function Data() {
     </>
   );
 }
+
+export default Data;

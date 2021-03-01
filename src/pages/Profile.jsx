@@ -1,40 +1,53 @@
 import React from "react";
+import Select from 'react-select';
 import Header from "../components/Header.jsx";
 import "../styles/Profile.scss";
+import data from "../utils/data";
+const opcionesselect = [
+  {value:'New' ,label:'New'},
+  {value:'Client' ,label:'Cliente'},
+  {value:'High Potential' ,label:'High Potential'},
+  {value:'Low Potential' ,label:'Low Potential'},
+];
 
-export default function Login() {
-  return (
+class Perfil extends React.Component{
+  render(){
+  return(
     <>
-      <Header active="profile" />
-      <div className="general">
-        <h1>Profile Page</h1>
-        <form className="information">
+    <Header active="profile" />
+    <div className="general">
+    <h1>Profile Page</h1>
+    <form className="information">
           <div className="generalInfo">
             <h2>General Information</h2>
             <div className="generalData">
               <article>
-                <label htmlFor="">First Name</label>
-                <input type="text" name="" id="" />
+                <label>Id:</label>
+                <input type="text" name="idCliente" readOnly value={data.length+1}/>
               </article>
               <article>
-                <label htmlFor="">Last Name</label>
-                <input type="text" name="" id="" />
+                <label>First Name</label>
+                <input type="text" name="firstName"/>
               </article>
               <article>
-                <label htmlFor="">Phone</label>
-                <input type="text" name="" id="" />
+                <label>Last Name</label>
+                <input type="text" name="lastName"/>
               </article>
               <article>
-                <label htmlFor="">Email</label>
-                <input type="text" name="" id="" />
+                <label>Phone</label>
+                <input type="text" name="phoneNumber"/>
               </article>
               <article>
-                <label htmlFor="">Age</label>
-                <input type="text" name="" id="" />
+                <label>Email</label>
+                <input type="text" name="email"/>
               </article>
               <article>
-                <label htmlFor="">Lead Status</label>
-                <select type="text" name="" id="" />
+                <label>Age</label>
+                <input type="text" name="age"/>
+              </article>
+              <article>
+                <label>Lead Status</label>
+                <Select options={opcionesselect}/>
               </article>
             </div>
           </div>
@@ -42,36 +55,39 @@ export default function Login() {
             <h2>Address</h2>
             <div className="additionalData">
               <article>
-                <label htmlFor="">Street</label>
-                <input type="text" />
+                <label>Street</label>
+                <input type="text" name="street"/>
               </article>
               <article>
-                <label htmlFor="">Additional Info</label>
-                <input type="text" />
+                <label>Additional Info</label>
+                <input type="text" name="aditionalInformation"/>
               </article>
               <article>
-                <label htmlFor="">City</label>
-                <input type="text" />
+                <label>City</label>
+                <input type="text" name="city"/>
               </article>
               <article>
-                <label htmlFor="">State/Province</label>
-                <input type="text" />
+                <label>State/Province</label>
+                <input type="text" name="state"/>
               </article>
               <article>
-                <label htmlFor="">ZIP/Postal Code</label>
-                <input type="text" />
+                <label>ZIP/Postal Code</label>
+                <input type="text" name="zipCode"/>
               </article>
               <article>
-                <label htmlFor="">Country</label>
-                <input type="text" />
+                <label>Country</label>
+                <input type="text" name="country"/>
               </article>
             </div>
           </div>
           <div className="saveButton">
-            <button>Save</button>
+            <button type="submit">Save</button>
           </div>
         </form>
-      </div>
+    </div>
     </>
-  );
+  )
+  }
+  
 }
+export default Perfil;
